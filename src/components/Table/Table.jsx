@@ -18,7 +18,7 @@ const Table = ({ nation, nationList, removeItem }) => {
         <tbody>
           {nationList.map((nation) => {
             return (
-              <tr>
+              <tr key={nation.id}>
                 <td>{nation.name}</td>
                 <td>{nation.gold}</td>
                 <td>{nation.silver}</td>

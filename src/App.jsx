@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Form from "./components/Form/Form";
 import Table from "./components/Table/Table";
+import { use } from "react";
 
 const defaultNations = [];
 const App = () => {
@@ -30,13 +31,23 @@ const App = () => {
       nation.gold === 0 &&
       nation.silver === 0 &&
       nation.bronze === 0
-    )
+    ) {
       alert("값을 입력해주세요!");
+      return;
+    }
 
     const newCountry = { ...nation, id: Date.now() };
     const newArray = [...nationList, newCountry];
 
+    // 금메달 수 정렬 컴포넌트 진행 중!!!!!
+    const mapGold = nationList.map((nationEl) => {
+      return nationEl.gold;
+    });
+    // console.log("mapGold", mapGold);
+    const sortGold = mapGold.sort((a, b) => b - a);
+
     setNationList(newArray);
+    // setNationList(sortGold);
     setNation(defaultNation);
   };
 
